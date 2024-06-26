@@ -123,7 +123,7 @@ with open(os.path.join(project_dir, 'Procfile'), 'w') as f:
 
 # Create runtime.txt
 runtime_txt_content = '''
-python-3.8.12
+python-3.9.12
 '''
 
 with open(os.path.join(project_dir, 'runtime.txt'), 'w') as f:
