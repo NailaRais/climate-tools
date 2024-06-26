@@ -1,4 +1,11 @@
+import os
 
+# Create project directory
+project_dir = 'my_dash_plot_app'
+os.makedirs(project_dir, exist_ok=True)
+
+# Create app.py
+app_py_content = '''
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
@@ -91,3 +98,34 @@ def update_graph(n_clicks, contents, x_column, y_column, plot_type):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+'''
+
+with open(os.path.join(project_dir, 'app.py'), 'w') as f:
+    f.write(app_py_content)
+
+# Create requirements.txt
+requirements_txt_content = '''
+dash
+pandas
+plotly
+'''
+
+with open(os.path.join(project_dir, 'requirements.txt'), 'w') as f:
+    f.write(requirements_txt_content)
+
+# Create Procfile
+procfile_content = '''
+web: python app.py
+'''
+
+with open(os.path.join(project_dir, 'Procfile'), 'w') as f:
+    f.write(procfile_content)
+
+# Create runtime.txt
+runtime_txt_content = '''
+python-3.8.12
+'''
+
+with open(os.path.join(project_dir, 'runtime.txt'), 'w') as f:
+    f.write(runtime_txt_content)
+
